@@ -1,4 +1,4 @@
-pubsub = require('./pubsub.js.coffee')
+pubsub = require('./pubsub.js')
 
 # Normalising Global events and passing them
 # To PubSub

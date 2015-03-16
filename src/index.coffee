@@ -1,5 +1,5 @@
 module.exports = yaks = 
-  DOM: require('./dom/index.js.coffee')
-  modules: require('./modules/index.js.coffee')
-  UTILS: require('./utils/index.js.coffee')
-  registerAction: require('./modules/actions.js.coffee').registerAction
+  DOM: require('./dom/index.js')
+  modules: require('./modules/index.js')
+  UTILS: require('./utils/index.js')
+  registerAction: require('./modules/actions.js').registerAction

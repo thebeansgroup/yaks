@@ -1,4 +1,4 @@
-isFunction = require('../utils/isType.js.coffee').Function
+isFunction = require('../utils/isType.js').Function
 
 # Base class for all plugins
 #

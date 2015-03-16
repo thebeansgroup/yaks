@@ -1,6 +1,6 @@
-pubsub = require('../utils/pubsub.js.coffee')
-isFunction = require('../utils/isType.js.coffee').Function
-plugin = require('./plugin.js.coffee')
+pubsub = require('../utils/pubsub.js')
+isFunction = require('../utils/isType.js').Function
+plugin = require('./plugin.js')
 
 # Actions module for DOM function binding
 #

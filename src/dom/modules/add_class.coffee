@@ -1,4 +1,4 @@
-hasClass = require './has_class.js.coffee'
+hasClass = require './has_class.js'
 
 #
 # Adds a new class to an element

@@ -1,5 +1,5 @@
 # Module Dependencies
-hasClass        = require './has_class.js.coffee'
+hasClass        = require './has_class.js'
 
 #
 # Remove a class from an element

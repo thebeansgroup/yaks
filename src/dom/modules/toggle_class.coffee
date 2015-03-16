@@ -1,7 +1,7 @@
 # Module Dependencies
-hasClass        = require './has_class.js.coffee'
-addClass        = require './add_class.js.coffee'
-removeClass     = require './remove_class.js.coffee'
+hasClass        = require './has_class.js'
+addClass        = require './add_class.js'
+removeClass     = require './remove_class.js'
 
 #
 # Toggles a call on an element

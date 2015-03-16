@@ -1,5 +1,5 @@
 utils = module.exports
 
-utils._globalEvents = require './globalEvents.js.coffee'
-utils.pubsub        = require './pubsub.js.coffee'
-utils.is            = require './isType.js.coffee'
+utils._globalEvents = require './globalEvents.js'
+utils.pubsub        = require './pubsub.js'
+utils.is            = require './isType.js'
