@@ -5,12 +5,12 @@ LIB = $(SRC:src/%.js.coffee=lib/%.js)
 build: $(LIB)
 lib/%.js: src/%.js.coffee
 	@mkdir -p $(@D)
-	@$(BIN)/coffee -bcp $< > $@
+	@$(BIN)/coffee -co lib/ src/
     
 test: build
   
 clean: 
-	@rm -f $(LIB)
+	@rm -rf lib
     
 install link: @npm $@
     
