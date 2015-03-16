@@ -9,7 +9,8 @@ lib/%.js: src/%.js.coffee
     
 test: build
   
-clean: @rm -f $(LIB)
+clean: 
+	@rm -f $(LIB)
     
 install link: @npm $@
     
