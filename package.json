@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/thebeansgroup/yaks/issues"
   },
-  "homepage": "https://github.com/thebeansgroup/yaks"
+  "homepage": "https://github.com/thebeansgroup/yaks",
+  "dependencies": {
+    "reqwest": "^1.1.5"
+  }
 }
