@@ -56,7 +56,7 @@ class YaksPlugin
   _createNewClass = (methods)->
     hasProp = {}.hasOwnProperty
     yaksPlugin = ()->  @constructor.apply(this, arguments)
-    yaksPlugin.prototype = Plugin.prototype
+    yaksPlugin.prototype = Object.create(Plugin.prototype)
     for key, fn of methods
       yaksPlugin.prototype[key] = fn unless hasProp.call(yaksPlugin.prototype, key)
     yaksPlugin
