@@ -10,16 +10,19 @@ test: build
   
 clean: 
 	@rm -rf lib
-    
+
+docs:
+	@$(BIN)/codo
+
 install link: @npm $@
     
-release-patch: build test
+release-patch: clean build test docs
 	@$(call release,patch)
 
-release-minor: build test
+release-minor: clean build test docs
 	@$(call release,minor)
 
-release-major: build test
+release-major: clean build test docs
 	@$(call release,major)
 
 publish:
