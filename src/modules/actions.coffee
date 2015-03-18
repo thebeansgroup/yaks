@@ -28,17 +28,16 @@ class Actions
   # Find action in DOM
   #
   findActions: ->
-    for actions in document.querySelectorAll("[#{@ACTIVE_ELEMENT}]")
-      @_fireAction(action) for action in actions.split('|')
+    @_fireAction(action) for action in document.querySelectorAll("[#{@ACTIVE_ELEMENT}]")
 
   # Subscribe actions to PubSub
   #
   # @param [Element] el Action element
   #
   _fireAction: (el) ->
-    type = el.getAttribute(@TYPE)
-    return false unless _actions[type]?
-    _actions[type](el)
+    types = el.getAttribute(@TYPE)
+    return false unless types?
+    _actions[type](el) for type in types.split('|') when _actions[type]?
     el.removeAttribute @ACTIVE_ELEMENT
 
   # Expose a clone of the actions for testing
