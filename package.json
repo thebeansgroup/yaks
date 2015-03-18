@@ -27,6 +27,7 @@
   "homepage": "https://github.com/thebeansgroup/yaks",
   "dependencies": {
     "codo": "^2.0.11",
+    "coffeeify": "^0.7.0",
     "reqwest": "^1.1.5"
   }
 }
