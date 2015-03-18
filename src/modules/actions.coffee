@@ -28,7 +28,8 @@ class Actions
   # Find action in DOM
   #
   findActions: ->
-    @_fireAction(action) for action in document.querySelectorAll("[#{@ACTIVE_ELEMENT}]")
+    for actions in document.querySelectorAll("[#{@ACTIVE_ELEMENT}]")
+      @_fireAction(action) for action in actions.split('|')
 
   # Subscribe actions to PubSub
   #
