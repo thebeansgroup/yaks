@@ -2,6 +2,8 @@ isFunction = require('../utils/isType.js').Function
 
 # Base class for all plugins
 #
+# @mixin
+#
 class Plugin
 
   LIFECYCLE_METHODS:  ['init', 'events', 'action']
