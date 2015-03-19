@@ -44,7 +44,7 @@ module.exports = function(grunt) {
             }
           }
         },
-        saucelabs_jasmine: {
+        "saucelabs-jasmine": {
             all :{
                 options: {
                     urls: ['http://127.0.0.1:9999/spec/SpecRunner.html'],
@@ -58,8 +58,8 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            files: ['src/yaks/**/*.coffee'],
-            tasks: ['browserify', 'coffee_jshint']
+            files: ['src/yaks/**/*.coffee', 'spec/yaks/**/*.coffee'],
+            tasks: ['browserify']
         },
         browserify: {
            yaks: {
@@ -84,7 +84,7 @@ module.exports = function(grunt) {
     for (var key in grunt.file.readJSON("package.json").devDependencies) {
       if (key !== "grunt" && key.indexOf("grunt") === 0) grunt.loadNpmTasks(key);
     }
-    
+
     grunt.registerTask("dev", ["browserify", "connect", "watch"]);
-    grunt.registerTask("test", ["browserify", "connect", "saucelabs_jasmine"]);
+    grunt.registerTask("test", ["browserify", "connect", "saucelabs-jasmine"]);
 };

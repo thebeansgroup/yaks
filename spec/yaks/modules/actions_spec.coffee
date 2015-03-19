@@ -24,18 +24,18 @@ describe 'Actions Module', ->
 
     beforeEach ->
       document.querySelectorAll('#jasmine_content')[0].innerHTML = div
-      
+
     afterEach ->
       document.querySelectorAll('#jasmine_content')[0].innerHTML = ""
 
     it 'should fire the action when event is published', ->
-      el = document.querySelectorAll("[#{actions.ACTIVE_ELEMENT}]")[0]
+      el = document.querySelectorAll("[#{actions._getActiveElement()}]")[0]
       pubsub.publish('new_content')
       expect(spy).toHaveBeenCalledWith(el)
-    
+
     it 'should deactivate triggers once processed', ->
-      el = document.querySelectorAll("[#{actions.ACTIVE_ELEMENT}]")
+      el = document.querySelectorAll("[#{actions._getActiveElement()}]")
       expect(el.length).not.toBe(0)
       pubsub.publish('new_content')
-      el_after = document.querySelectorAll("[#{actions.ACTIVE_ELEMENT}]")
+      el_after = document.querySelectorAll("[#{actions._getActiveElement()}]")
       expect(el_after.length).toBe(0)

@@ -42,16 +42,16 @@ describe('Actions Module', function() {
     });
     it('should fire the action when event is published', function() {
       var el;
-      el = document.querySelectorAll("[" + actions.ACTIVE_ELEMENT + "]")[0];
+      el = document.querySelectorAll("[" + (actions._getActiveElement()) + "]")[0];
       pubsub.publish('new_content');
       return expect(spy).toHaveBeenCalledWith(el);
     });
     return it('should deactivate triggers once processed', function() {
       var el, el_after;
-      el = document.querySelectorAll("[" + actions.ACTIVE_ELEMENT + "]");
+      el = document.querySelectorAll("[" + (actions._getActiveElement()) + "]");
       expect(el.length).not.toBe(0);
       pubsub.publish('new_content');
-      el_after = document.querySelectorAll("[" + actions.ACTIVE_ELEMENT + "]");
+      el_after = document.querySelectorAll("[" + (actions._getActiveElement()) + "]");
       return expect(el_after.length).toBe(0);
     });
   });
