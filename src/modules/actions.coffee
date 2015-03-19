@@ -42,6 +42,6 @@ class Actions
 
   # Expose a clone of the actions for testing
   #
-  _getActions: ()-> Object.create(_actions)
+  _getActions: ()-> 
 
 module.exports = a = new Actions()

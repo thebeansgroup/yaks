@@ -8,8 +8,5 @@ before_script:
 
 env:
   global:
-    - secure: bUWMJfTNJ7ip6Mm648rb77Ey4feRhrPh6DUdI8jeSnzD3Z4wCnvmvVLgVaRs2iHOnW5bv2Ml9VdcEJQpTaR1+PAMou9uOVrqAWkBKfmgvjV6m4noidtYb/bOTBgOGCgJAapps87HC4vMQlow2zT4Pg3kJE5ykfEerTL0t43oL9w=
-    - secure: l/J2P6vxxinyhN0F18Lh4XnxDx3DdWIjC8BFIrB5iC56iDK8xhLlw5bA5GLUOYK8wToM3GKO9HYNLgYqK80BxDwg49XvWr7PLIB4r2x4sjeZOIQbz62Uhy4u07k3zWnH9i6XAwVhstu5KlYMSDIZsUiAT3mCaNT4RsG65/cZk1E=
-    
-addons:
-  sauce_connect: true
+    - secure: cmxXCD7dIVKpko5ANGeKaTrE8jZte91ttIL2wrDMfAIFgMyUzGx4Fc+szfv36kHVuqGAnD1FHf1eBWP4WK6VLwcMckq+5hU8Mgrt184J16eltQ+rN15BTcfq4jZRV4NBIAQjmpXlNDB7o6iwm4acYiTXSCOhrgv9sLYspg0epsY=
+    - secure: IiK2BYAS9g6t0WU4qwIRLfIMz3U/O6GEmF7VM6gjrUQgs7XK0cOpu6jjblQTr8N1BmdyG455eoK6YYiaOE5/lR2tRilU6Py47qjcoMs6rJC7WA1gxELXN1FSy64mGmGkqVt0XaZQ8OZYSXqldhtGJkNp1WRJWdHyd8eli+e3Q68=
