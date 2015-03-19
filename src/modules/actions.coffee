@@ -14,6 +14,7 @@ class Actions
   # Constructor 
   #
   constructor: () ->
+    @_setNameSpaces()
     pubsub.subscribe 'load', @findActions.bind(@)
     pubsub.subscribe 'new_content', @findActions.bind(@)
 
@@ -44,4 +45,12 @@ class Actions
   #
   _getActions: ()-> Object.create(_actions)
 
+  # Set namespace to allow for MULTI-YAKS
+  #
+  _setNameSpaces: ->
+    namespace = if window.yaks?.nsp? then window.yaks.nsp else "yaks"
+    @ACTIVE_ELEMENT = "data-#{namespace}-action-active"
+    @TYPE = "data-#{namespace}-action-type"
+
 module.exports = a = new Actions()
+
