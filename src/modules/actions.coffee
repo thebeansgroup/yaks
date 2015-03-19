@@ -22,7 +22,6 @@ class Actions
   # Constructor 
   #
   constructor: () ->
-    @_setNameSpaces()
     pubsub.subscribe 'load', @findActions.bind(@)
     pubsub.subscribe 'new_content', @findActions.bind(@)
 
