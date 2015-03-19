@@ -21,8 +21,13 @@
 </head>
 
 <body>
-
-    
     <div id="jasmine_content"></div>
+
+    <script type="text/javascript">
+    (function() {
+        var jasmineEnv = jasmine.getEnv();
+        jasmineEnv.addReporter(new jasmine.JSReporter2());
+    })();
+    </script>
 </body>
 </html>

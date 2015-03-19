@@ -3,13 +3,6 @@ module.exports = function(grunt) {
         browserName: "firefox",
         version: "19",
         platform: "XP"
-    }, {
-        browserName: "chrome",
-        platform: "XP"
-    }, {
-        browserName: "internet explorer",
-        platform: "XP",
-        version: "8"
     }];
 
     grunt.initConfig({
@@ -29,7 +22,7 @@ module.exports = function(grunt) {
                 build: process.env.TRAVIS_JOB_ID,
                 concurrency: 3,
                 browsers: browsers,
-                testname: 'yaks_testing',
+                testname: 'yaks_tests',
                 tags: ['master']
             }
         }

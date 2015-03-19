@@ -8,24 +8,8 @@ before_script:
 
 env:
   global:
-    - RAILS_ENV=test
-    - secure: "rA7tyRuyuGfKC1n7fZijahzQ2pQwmyoE4CfuNk3J5yuOlvRZ5YhH5ZWVX7GsFt/dujVm4MPrKFaW9AFZAVuXOaWCtWW/4oFk+bxPLnzo0nBHp/CjeUle30cUqhG3St5DU5ohTOOvJSh6WWV+usdmGwp6udkO2PJ1QkVJ1wsJsEs="
-    - USE_SAUCE=true
-    - SAUCE_TMP_DIR="$(mktemp -d -t sc.XXXX)"
-    - SAUCE_CONNECT_BIN="${SAUCE_TMP_DIR}/sauce-connect/bin/sc"
-    - secure: "Sx2EinCXwOMfegCZzDP+7q7wbRwt/rc6xm9ANJqKHk+KwfX0USX5r6GJ2SKvdZot3GM065kW7QKC/q1fUOx9nmZ4ZOyv2UP+L29qyv6Uy6jl2pM9w/0Jg9IsKlbEc42U5+w+/UIjw9d7HV6G2ryexScHhp1HB4cT9/abrNg8rMQ="
-    - secure: "g9XkyJs6Ksqr1vfm1shx+gDJ6jWYui+FYEdwlh+S9DhG0OjRjMwY8BA8AfsBkEXfsBkIXfs86IWM3LVlsLjgZN2BoU6tJpF0LLw3vf9S6E424zV6BLNWcYUy4t+HvOc/yNpocD4BgUxeXMkQcLT2ZOqWtLp5Ld01YFZ8diuXvXU="
-  matrix:
-    include:
-      - env:
-        - JASMINE_BROWSER="firefox"
-        - SAUCE_OS="Linux"
-        - SAUCE_BROWSER_VERSION=''
-      - env:
-        - JASMINE_BROWSER="internet explorer"
-        - SAUCE_OS="Windows 7"
-        - SAUCE_BROWSER_VERSION='8'
-      - env:
-        - JASMINE_BROWSER="safari"
-        - SAUCE_OS="OS X 10.8"
-        - SAUCE_BROWSER_VERSION='6'
+    - secure: bUWMJfTNJ7ip6Mm648rb77Ey4feRhrPh6DUdI8jeSnzD3Z4wCnvmvVLgVaRs2iHOnW5bv2Ml9VdcEJQpTaR1+PAMou9uOVrqAWkBKfmgvjV6m4noidtYb/bOTBgOGCgJAapps87HC4vMQlow2zT4Pg3kJE5ykfEerTL0t43oL9w=
+    - secure: l/J2P6vxxinyhN0F18Lh4XnxDx3DdWIjC8BFIrB5iC56iDK8xhLlw5bA5GLUOYK8wToM3GKO9HYNLgYqK80BxDwg49XvWr7PLIB4r2x4sjeZOIQbz62Uhy4u07k3zWnH9i6XAwVhstu5KlYMSDIZsUiAT3mCaNT4RsG65/cZk1E=
+    
+addons:
+  sauce_connect: true
