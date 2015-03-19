@@ -2,8 +2,8 @@ pubsub = require('../utils/pubsub.js')
 isFunction = require('../utils/isType.js').Function
 plugin = require('./plugin.js')
 
-ACTIVE_ELEMENT: 'data-yaks-action-active'
-TYPE: 'data-yaks-action-type'
+ACTIVE_ELEMENT = 'data-yaks-action-active'
+TYPE = 'data-yaks-action-type'
 
 # Set namespace to allow for MULTI-YAKS
 #
