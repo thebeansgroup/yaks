@@ -1,7 +1,0 @@
---name       "Yaks"
---readme     README.md
---title      "Yaks Documentation"
---private
---verbose
---output ./docs
-./src
