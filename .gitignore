@@ -1,4 +1,6 @@
 node_modules
 lib
 docs
-jasmine
+.node-version
+.npmignore
+.codoopts
