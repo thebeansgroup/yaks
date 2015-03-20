@@ -4,6 +4,30 @@
 },{}],2:[function(require,module,exports){
 var div;
 
+div = "<div id='test'></div>";
+
+describe('DOM Modules', function() {
+  var dom;
+  dom = window.yaks.DOM;
+  beforeEach(function() {
+    return document.querySelectorAll('#jasmine_content')[0].innerHTML = div;
+  });
+  afterEach(function() {
+    return document.querySelectorAll('#jasmine_content')[0].innerHTML = "";
+  });
+  return it('should add class to element', function() {
+    var el;
+    el = document.querySelectorAll("#test")[0];
+    dom.addClass(el, 'test-class');
+    return expect(dom.hasClass(el, 'test-class')).toBe(true);
+  });
+});
+
+
+
+},{}],3:[function(require,module,exports){
+var div;
+
 div = "<div data-yaks-action-active=true data-yaks-action-type='my_function'></div>";
 
 describe('Actions Module', function() {
@@ -59,7 +83,7 @@ describe('Actions Module', function() {
 
 
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 describe('is types', function() {
   return describe('isFunction', function() {
     var isFunction;
@@ -90,7 +114,7 @@ describe('is types', function() {
 
 
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 describe('PubSub Module', function() {
   var pubsub;
   pubsub = window.yaks.UTILS.pubsub;
@@ -204,11 +228,11 @@ describe('PubSub Module', function() {
 
 
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 var yaks_shims;
 
 module.exports = yaks_shims = require('yaks_shims');
 
 
 
-},{"yaks_shims":1}]},{},[2,3,4,5]);
+},{"yaks_shims":1}]},{},[2,3,4,5,6]);

@@ -52,6 +52,8 @@ class Actions
   #
   _getActions: ()-> Object.create(_actions)
 
+  # Expose active element for testing
+  #
   _getActiveElement: () -> ACTIVE_ELEMENT
 
 
