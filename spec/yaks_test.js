@@ -9,17 +9,41 @@ div = "<div id='test'></div>";
 describe('DOM Modules', function() {
   var dom;
   dom = window.yaks.DOM;
-  beforeEach(function() {
-    return document.querySelectorAll('#jasmine_content')[0].innerHTML = div;
-  });
-  afterEach(function() {
-    return document.querySelectorAll('#jasmine_content')[0].innerHTML = "";
-  });
-  return it('should add class to element', function() {
-    var el;
-    el = document.querySelectorAll("#test")[0];
-    dom.addClass(el, 'test-class');
-    return expect(dom.hasClass(el, 'test-class')).toBe(true);
+  return describe('Classes', function() {
+    beforeEach(function() {
+      return document.querySelectorAll('#jasmine_content')[0].innerHTML = div;
+    });
+    afterEach(function() {
+      return document.querySelectorAll('#jasmine_content')[0].innerHTML = "";
+    });
+    it('should check if an element has class', function() {
+      var el;
+      el = document.querySelectorAll("#test")[0];
+      expect(dom.hasClass(el, 'test-class')).toBe(false);
+      dom.addClass(el, 'test-class');
+      return expect(dom.hasClass(el, 'test-class')).toBe(true);
+    });
+    it('should add class to element', function() {
+      var el;
+      el = document.querySelectorAll("#test")[0];
+      dom.addClass(el, 'test-class');
+      return expect(dom.hasClass(el, 'test-class')).toBe(true);
+    });
+    it('should remove class from an element', function() {
+      var el;
+      el = document.querySelectorAll("#test")[0];
+      dom.addClass(el, 'test-class');
+      expect(dom.hasClass(el, 'test-class')).toBe(true);
+      dom.removeClass(el, 'test-class');
+      return expect(dom.hasClass(el, 'test-class')).toBe(false);
+    });
+    return it('should toggle class on an element', function() {
+      var el, hasClass;
+      el = document.querySelectorAll("#test")[0];
+      hasClass = dom.hasClass(el, 'test-class');
+      dom.toggleClass(el, 'test-class');
+      return expect(dom.hasClass(el, 'test-class')).toBe(!hasClass);
+    });
   });
 });
 
