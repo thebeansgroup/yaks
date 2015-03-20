@@ -58,7 +58,7 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            files: ['src/yaks/**/*.coffee', 'spec/yaks/**/*.coffee'],
+            files: ['src/**/*.coffee', 'spec/yaks/**/*.coffee'],
             tasks: ['browserify']
         },
         browserify: {

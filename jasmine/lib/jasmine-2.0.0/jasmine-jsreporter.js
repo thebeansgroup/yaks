@@ -387,7 +387,7 @@
     jasmine.jsReport = {
       passed: overallPassed,
       durationSec: overallDuration / 1000,
-      suites: overallSuites
+//      suites: overallSuites
     };
   };
 
