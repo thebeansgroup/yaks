@@ -6,7 +6,8 @@ build:
 	@mkdir -p $(@D)
 	@$(BIN)/coffee -co lib/ src/
     
-test: build
+test:
+	npm test
   
 clean: 
 	@rm -rf lib
