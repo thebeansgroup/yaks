@@ -4,23 +4,32 @@
   "description": "Collection of Frontend modules",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt test"
   },
   "devDependencies": {
-    "coffee-script": ">= 1.3"
+    "coffee-script": ">= 1.3",
+    "grunt": "~0.4.0",
+    "grunt-browserify": "^3.5.0",
+    "grunt-cli": "~0.1.6",
+    "grunt-coffee-jshint": "^0.2.1",
+    "grunt-contrib-connect": "~0.1.2",
+    "grunt-contrib-watch": "~0.2.0",
+    "grunt-saucelabs": "~8.6.0",
+    "yaks_shims": "0.0.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/thebeansgroup/yaks.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/thebeansgroup/yaks/issues"
   },
   "homepage": "https://github.com/thebeansgroup/yaks",
   "dependencies": {
     "codo": "^2.0.11",
+    "coffeeify": "^0.7.0",
     "reqwest": "^1.1.5"
   }
 }

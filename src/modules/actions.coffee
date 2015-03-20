@@ -19,7 +19,7 @@ class Actions
 
   _actions = {}
 
-  # Constructor 
+  # Constructor
   #
   constructor: () ->
     pubsub.subscribe 'load', @findActions.bind(@)
@@ -30,7 +30,7 @@ class Actions
   # @param [String] name Action name (or type)
   # @param [Function] action Action function
   #
-  registerAction: (name, action) -> 
+  registerAction: (name, action) ->
     _actions[name] = action if isFunction(action)
 
   # Find action in DOM
@@ -52,7 +52,11 @@ class Actions
   #
   _getActions: ()-> Object.create(_actions)
 
- 
+  # Expose active element for testing
+  #
+  _getActiveElement: () -> ACTIVE_ELEMENT
+
+
 
 module.exports = a = new Actions()
 
