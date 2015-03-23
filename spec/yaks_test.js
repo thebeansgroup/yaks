@@ -9,7 +9,7 @@ div = "<div id='test'></div>";
 describe('DOM Modules', function() {
   var dom;
   dom = window.yaks.DOM;
-  return describe('Classes', function() {
+  describe('Classes', function() {
     beforeEach(function() {
       return document.querySelectorAll('#jasmine_content')[0].innerHTML = div;
     });
@@ -43,6 +43,30 @@ describe('DOM Modules', function() {
       hasClass = dom.hasClass(el, 'test-class');
       dom.toggleClass(el, 'test-class');
       return expect(dom.hasClass(el, 'test-class')).toBe(!hasClass);
+    });
+  });
+  return describe('Closest', function() {
+    beforeEach(function() {
+      var html;
+      html = "<div id='test'><span><a href='#test' class='link'>Test</a></span></div>";
+      return document.querySelectorAll('#jasmine_content')[0].innerHTML = html;
+    });
+    afterEach(function() {
+      return document.querySelectorAll('#jasmine_content')[0].innerHTML = "";
+    });
+    it('should return a parent item of set type', function() {
+      var closestEl, divEl, el;
+      el = document.querySelector('.link');
+      divEl = document.querySelector('#test');
+      closestEl = dom.closest(el, 'div');
+      return expect(closestEl).toBe(divEl);
+    });
+    return it('should return null if set type is not there', function() {
+      var closestEl, divEl, el;
+      el = document.querySelector('.link');
+      divEl = document.querySelector('#test');
+      closestEl = dom.closest(el, 'li');
+      return expect(closestEl).toBe(null);
     });
   });
 });
