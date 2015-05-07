@@ -1,3 +1,8 @@
 -node_modules		
 -Makefile		
 -.codoopts
+-.travis.yml
+-src
+-spec
+-jasmine
+-docs

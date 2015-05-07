@@ -4,6 +4,7 @@ utils._globalEvents = require './globalEvents.js'
 utils.pubsub        = require './pubsub.js'
 utils.is            = require './isType.js'
 utils.canUseDOM     = require './canUseDOM.js'
+utils.storage       = require './storage.js'
 
 # Tempory external libs
 #

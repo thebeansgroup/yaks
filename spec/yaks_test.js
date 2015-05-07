@@ -9,17 +9,65 @@ div = "<div id='test'></div>";
 describe('DOM Modules', function() {
   var dom;
   dom = window.yaks.DOM;
-  beforeEach(function() {
-    return document.querySelectorAll('#jasmine_content')[0].innerHTML = div;
+  describe('Classes', function() {
+    beforeEach(function() {
+      return document.querySelectorAll('#jasmine_content')[0].innerHTML = div;
+    });
+    afterEach(function() {
+      return document.querySelectorAll('#jasmine_content')[0].innerHTML = "";
+    });
+    it('should check if an element has class', function() {
+      var el;
+      el = document.querySelectorAll("#test")[0];
+      expect(dom.hasClass(el, 'test-class')).toBe(false);
+      dom.addClass(el, 'test-class');
+      return expect(dom.hasClass(el, 'test-class')).toBe(true);
+    });
+    it('should add class to element', function() {
+      var el;
+      el = document.querySelectorAll("#test")[0];
+      dom.addClass(el, 'test-class');
+      return expect(dom.hasClass(el, 'test-class')).toBe(true);
+    });
+    it('should remove class from an element', function() {
+      var el;
+      el = document.querySelectorAll("#test")[0];
+      dom.addClass(el, 'test-class');
+      expect(dom.hasClass(el, 'test-class')).toBe(true);
+      dom.removeClass(el, 'test-class');
+      return expect(dom.hasClass(el, 'test-class')).toBe(false);
+    });
+    return it('should toggle class on an element', function() {
+      var el, hasClass;
+      el = document.querySelectorAll("#test")[0];
+      hasClass = dom.hasClass(el, 'test-class');
+      dom.toggleClass(el, 'test-class');
+      return expect(dom.hasClass(el, 'test-class')).toBe(!hasClass);
+    });
   });
-  afterEach(function() {
-    return document.querySelectorAll('#jasmine_content')[0].innerHTML = "";
-  });
-  return it('should add class to element', function() {
-    var el;
-    el = document.querySelectorAll("#test")[0];
-    dom.addClass(el, 'test-class');
-    return expect(dom.hasClass(el, 'test-class')).toBe(true);
+  return describe('Closest', function() {
+    beforeEach(function() {
+      var html;
+      html = "<div id='test'><span><a href='#test' class='link'>Test</a></span></div>";
+      return document.querySelectorAll('#jasmine_content')[0].innerHTML = html;
+    });
+    afterEach(function() {
+      return document.querySelectorAll('#jasmine_content')[0].innerHTML = "";
+    });
+    it('should return a parent item of set type', function() {
+      var closestEl, divEl, el;
+      el = document.querySelector('.link');
+      divEl = document.querySelector('#test');
+      closestEl = dom.closest(el, 'div');
+      return expect(closestEl).toBe(divEl);
+    });
+    return it('should return null if set type is not there', function() {
+      var closestEl, divEl, el;
+      el = document.querySelector('.link');
+      divEl = document.querySelector('#test');
+      closestEl = dom.closest(el, 'li');
+      return expect(closestEl).toBe(null);
+    });
   });
 });
 
