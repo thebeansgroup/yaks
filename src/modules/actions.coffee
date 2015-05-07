@@ -1,6 +1,7 @@
 pubsub = require('../utils/pubsub.js')
 isFunction = require('../utils/isType.js').Function
 plugin = require('./plugin.js')
+canUseDOM = require('../utils/canUseDOM.js')
 
 ACTIVE_ELEMENT = 'data-yaks-action-active'
 TYPE = 'data-yaks-action-type'
@@ -36,7 +37,7 @@ class Actions
   # Find action in DOM
   #
   findActions: ->
-    @_fireAction(action) for action in document.querySelectorAll("[#{ACTIVE_ELEMENT}]")
+    @_fireAction(action) for action in document.querySelectorAll("[#{ACTIVE_ELEMENT}]") if canUseDOM
 
   # Subscribe actions to PubSub
   #
@@ -59,4 +60,3 @@ class Actions
 
 
 module.exports = a = new Actions()
-
