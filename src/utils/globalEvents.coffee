@@ -1,15 +1,17 @@
-pubsub = require('./pubsub.js')
+pubsub    = require('./pubsub.js')
+canUseDOM = require('./canUseDOM.js')
 
 # Normalising Global events and passing them
 # To PubSub
 #
 class GlobalEvents
   constructor: ->
-    @ready()
-    @resize()
-    @scroll()
+    if canUseDOM
+      @ready()
+      @resize()
+      @scroll()
 
-  # Window/Document ready 
+  # Window/Document ready
   #
   ready: ->
     document.addEventListener( "DOMContentLoaded", @_ready_completed.bind(@), false )
