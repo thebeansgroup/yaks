@@ -14,8 +14,15 @@ class GlobalEvents
   # Window/Document ready
   #
   ready: ->
-    document.addEventListener( "DOMContentLoaded", @_ready_completed.bind(@), false )
-    window.addEventListener( "load", @_ready_completed.bind(@), false )
+    fn = @_ready_completed.bind(@)
+    if document.readyState != 'loading'
+      fn()
+    else if document.addEventListener
+      document.addEventListener 'DOMContentLoaded', fn
+    else
+      document.attachEvent 'onreadystatechange', ->
+        if document.readyState != 'loading'
+          fn()
 
   # Remove event and publish load event once fired
   #
