@@ -46,8 +46,17 @@ class Actions
   _fireAction: (el) ->
     types = el.getAttribute(TYPE)
     return false unless types?
-    _actions[type](el) for type in types.split('|') when _actions[type]?
-    el.removeAttribute ACTIVE_ELEMENT
+    for type in types.split('|') when _actions[type]?
+      _actions[type](el)
+      @_removeActionTrigger(el, type, types.split('|'))
+
+  _removeActionTrigger: (el, type, types) ->
+    index = types.indexOf(type)
+    types.splice(index, 1)
+    if types.length
+      el.setAttribute(TYPE, types.join('|'))
+    else
+      el.removeAttribute ACTIVE_ELEMENT
 
   # Expose a clone of the actions for testing
   #
