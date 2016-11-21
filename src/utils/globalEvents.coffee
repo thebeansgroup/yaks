@@ -1,12 +1,15 @@
 pubsub    = require('./pubsub.js')
 canUseDOM = require('./canUseDOM.js')
 
+bruteTimeoutCount = 0
+
 # Normalising Global events and passing them
 # To PubSub
 #
 class GlobalEvents
   constructor: ->
     if canUseDOM
+      @ready = @ready.bind(@)
       @ready()
       @resize()
       @scroll()
@@ -14,22 +17,17 @@ class GlobalEvents
   # Window/Document ready
   #
   ready: ->
-    fn = @_ready_completed.bind(@)
-    if document.readyState != 'loading'
-      fn()
-    else if document.addEventListener
-      document.addEventListener 'DOMContentLoaded', fn
+    if document.readyState is 'complete'
+      @_ready_completed()
     else
-      document.attachEvent 'onreadystatechange', ->
-        if document.readyState != 'loading'
-          fn()
+      # Brute force - https://goo.gl/SsAhv
+      bruteTimeoutCount++
+      setTimeout(@ready, 1000) if bruteTimeoutCount < 25
 
   # Remove event and publish load event once fired
   #
   _ready_completed: ->
     pubsub.publish 'load'
-    document.removeEventListener( "DOMContentLoaded", @_ready_completed.bind(@), false )
-    window.removeEventListener( "load", @_ready_completed.bind(@), false )
 
   # Listen to browser resize and pass to pubsub
   #
@@ -72,7 +70,6 @@ class GlobalEvents
   #
   _scroll_fire: ->
     pubsub.publish 'scroll'
-
 
 
 module.exports = new GlobalEvents()
