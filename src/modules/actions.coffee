@@ -13,7 +13,6 @@ do ->
   ACTIVE_ELEMENT = "data-#{namespace}-action-active"
   TYPE = "data-#{namespace}-action-type"
 
-
 # Actions module for DOM function binding
 #
 class Actions
@@ -23,8 +22,9 @@ class Actions
   # Constructor
   #
   constructor: () ->
-    pubsub.subscribe 'load', @findActions.bind(@)
-    pubsub.subscribe 'new_content', @findActions.bind(@)
+    @findActions = @findActions.bind(@)
+    pubsub.subscribe 'load', @findActions
+    pubsub.subscribe 'new_content', @findActions
 
   # Register Action
   #
@@ -33,6 +33,7 @@ class Actions
   #
   registerAction: (name, action) ->
     _actions[name] = action if isFunction(action)
+    @findActions()
 
   # Find action in DOM
   #
@@ -65,7 +66,6 @@ class Actions
   # Expose active element for testing
   #
   _getActiveElement: () -> ACTIVE_ELEMENT
-
 
 
 module.exports = a = new Actions()
